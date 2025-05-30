@@ -1,8 +1,8 @@
-import Planes.experimentalPlane;
+import Planes.experimentalPlane; // class with lowercase letter
 import models.MilitaryType;
 import Planes.MilitaryPlane;
 import Planes.PassengerPlane;
-import Planes.Plane;
+import Planes.Plane;            // why just Plane(what type of plane)
 
 import java.util.*;
 
@@ -14,11 +14,14 @@ public class Airport {
     private List<? extends Plane> planes;
 
 
-
-    public List<PassengerPlane> getPasPl() {
+    // hard to understand method getPasPl
+    public List<PassengerPlane> getPasPl() { 
+        // hard to understand variable l
         List<? extends Plane> l = this.planes;
-        List<PassengerPlane> x = new ArrayList<>();
-        for (Plane p : l) {if (p instanceof PassengerPlane) {x.add((PassengerPlane) p);}}
+         // hard to understand variable x
+        List<PassengerPlane> x = new ArrayList<>();           
+        // hard to understand variable p
+        for (Plane p : l) {if (p instanceof PassengerPlane) {x.add((PassengerPlane) p);}} 
         return x;
     }
 
@@ -27,11 +30,13 @@ public class Airport {
         for (Plane plane : planes) {
             if (plane instanceof MilitaryPlane) {
                 militaryPlanes.add((MilitaryPlane) plane);
-            } //if
+                // commented code
+            } //if          
             else {
-
+             // commented code
             } // else
-        } //for
+        // commented code
+        } //for                                                                        
         return militaryPlanes;
     }
 
@@ -43,6 +48,8 @@ public class Airport {
                 planeWithMaxCapacity = passengerPlanes.get(i);
             }
         }
+        // I'm not sure but a lot of whitespaces
+        
 
 
 
@@ -55,7 +62,8 @@ public class Airport {
     public List<MilitaryPlane> getTransportMilitaryPlanes() {
     List<MilitaryPlane> transportMilitaryPlanes = new ArrayList<>();
     List<MilitaryPlane> militaryPlanes = getMilitaryPlanes();
-    for (int i = 0; i < militaryPlanes.size(); i++) {
+    // no tabs in here
+    for (int i = 0; i < militaryPlanes.size(); i++) {               
     MilitaryPlane plane = militaryPlanes.get(i);
     if (plane.getType() == MilitaryType.TRANSPORT) {
     transportMilitaryPlanes.add(plane);
@@ -89,7 +97,9 @@ public class Airport {
 
     public Airport sortByMaxDistance() {
         Collections.sort(planes, new Comparator<Plane>() {
+            // unreadable variables
             public int compare(Plane o1, Plane o2) {
+                // method is started with upperCase and there shouldn't be _
                 return o1.Get_Max_Flight_Distance() - o2.Get_Max_Flight_Distance();
             }
         });
@@ -98,12 +108,14 @@ public class Airport {
 
 
     /**
-     * Sorts by max speed
-     * @return Airport
+     * Sorts by max speed 
+     * @return Airport   <-- very obvious 
      */
     public Airport sortByMaxSpeed() {
         Collections.sort(planes, new Comparator<Plane>() {
+            // unreadable variables
             public int compare(Plane o1, Plane o2) {
+                // unreadable method 
                 return o1.getMS() - o2.getMS();
             }
         });
@@ -112,6 +124,7 @@ public class Airport {
 
     public Airport sortByMaxLoadCapacity() {
         Collections.sort(planes, new Comparator<Plane>() {
+            // unreadable variables
             public int compare(Plane o1, Plane o2) {
                 return o1.getMinLoadCapacity() - o2.getMinLoadCapacity();
             }
@@ -124,9 +137,11 @@ public class Airport {
     }
 
     private void print(Collection<? extends Plane> collection) {
+        // too common name(should be smth like planes)
         Iterator<? extends Plane> iterator = collection.iterator();
-        while (iterator.hasNext()) {
+        while (iterator.hasNext( )) {
             Plane plane = iterator.next();
+            // shouldn't use System.out.println
             System.out.println(plane);
         }
     }
